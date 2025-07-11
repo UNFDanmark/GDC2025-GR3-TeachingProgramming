@@ -1061,7 +1061,7 @@ Transform:
   m_GameObject: {fileID: 1020091278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.495, y: 0, z: 0}
+  m_LocalPosition: {x: 1.073, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1079,6 +1079,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9b8978abf9a2e418f2f9b24c7f321e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 2862076575681863539, guid: 18382564c17fca141a5376a9fc2b8c90, type: 3}
+  shoot:
+    m_Name: Shoot
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3274254b-adbd-4e3a-aaf0-86fd06bb43af
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: acf42b6c-2fcf-481a-8ae9-e3bcd148ae83
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot
+      m_Flags: 0
+    m_Flags: 0
+  cooldown: 0.5
 --- !u!1 &1363691585
 GameObject:
   m_ObjectHideFlags: 0
