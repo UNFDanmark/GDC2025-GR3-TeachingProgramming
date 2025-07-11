@@ -1,19 +1,16 @@
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class EnemyScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        print("jeg bliver kaldt en enkelt gang");
-
-       
+        print("jeg er ond");
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("jeg bliver kaldt meget");
+        
     }
 }
- 
