@@ -26,6 +26,8 @@ public class ShootingScript : MonoBehaviour
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
             cooldownleft = cooldown;
+            Destroy(bullet.gameObject,5);
         }
+        
     }
 }
