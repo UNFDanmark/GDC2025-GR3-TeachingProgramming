@@ -4,11 +4,11 @@ using UnityEngine.InputSystem;
 
 public class ShootingScript : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject bulletprefab;
     public InputAction shoot;
     public float cooldown = 0.5f;
     float cooldownleft;
-    
+    public float bulletspeed = 5f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,9 +24,10 @@ public class ShootingScript : MonoBehaviour
 
         if (shoot.WasPressedThisFrame() && cooldownleft <= 0)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
+            Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
+            bulletRB.linearVelocity = transform.forward * bulletspeed;
             cooldownleft = cooldown;
-            Destroy(bullet.gameObject,5);
         }
         
     }

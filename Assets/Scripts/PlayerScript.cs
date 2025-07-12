@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     bool has_erection = true;
     public float speed = 20f;
     public float dihCooldown = 1;
-
+    public int CoinsCollected;
     public InputAction moveAction;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
