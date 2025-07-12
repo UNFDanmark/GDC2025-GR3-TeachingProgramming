@@ -7,6 +7,11 @@ public class AIEyes : MonoBehaviour
     bool hitSomething;
     public float sightDistance = 8f;
     public Transform eyes;
+    public float cooldown = 0.5f;
+    float cooldownleft;
+    //bullet
+    public GameObject bulletprefab;
+    public float bulletspeed = 5f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,14 +24,20 @@ public class AIEyes : MonoBehaviour
     {
         hitSomething = Physics.Raycast(eyes.position, eyes.forward, out hit, sightDistance);
 
-
+        cooldownleft -= Time.deltaTime;
 
 
         if (hitSomething)
         {
-            if (hit.transform.CompareTag("Player"))
+            if (hit.transform.CompareTag("Player") && cooldownleft <= 0)
             {
-                print("hey buddy");
+                
+                    GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
+                    Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
+                    bulletRB.linearVelocity = transform.forward * bulletspeed;
+                    bulletRB.rotation = Quaternion.LookRotation(eyes.forward)*Quaternion.AngleAxis(90,new Vector3(0,1,0));
+                    cooldownleft = cooldown;
+                
             }
         }
     }
