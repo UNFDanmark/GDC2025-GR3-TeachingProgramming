@@ -10,10 +10,12 @@ public class ShootingScript : MonoBehaviour
     float cooldownleft;
     public float bulletspeed = 5f;
     public Animator animator;
+    AudioSource audioSource;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         shoot.Enable();
     }
 
@@ -29,7 +31,9 @@ public class ShootingScript : MonoBehaviour
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
             bulletRB.linearVelocity = transform.forward * bulletspeed;
             cooldownleft = cooldown;
-            animator.SetTrigger("shoot");   
+            animator.SetTrigger("shoot");
+            audioSource.pitch = Random.Range(0.5f, 1.5f);
+            audioSource.Play();
         }
         
     }
