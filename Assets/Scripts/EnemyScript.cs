@@ -8,7 +8,7 @@ public class EnemyScript : MonoBehaviour
     public int Currenthealth;
     //public Transform player;
     public float Espeed = 5f;
-
+    public Animator animator;
     public NavMeshAgent agent;
     GameObject playerTarget;
     
@@ -32,6 +32,7 @@ public class EnemyScript : MonoBehaviour
 
         agent.SetDestination(playerTarget.transform.position);
         
+        animator.SetFloat("speed", agent.speed);
         
         if (Currenthealth <= 0)
         {

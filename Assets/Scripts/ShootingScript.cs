@@ -9,6 +9,7 @@ public class ShootingScript : MonoBehaviour
     public float cooldown = 0.5f;
     float cooldownleft;
     public float bulletspeed = 5f;
+    public Animator animator;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +29,7 @@ public class ShootingScript : MonoBehaviour
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
             bulletRB.linearVelocity = transform.forward * bulletspeed;
             cooldownleft = cooldown;
+            animator.SetTrigger("shoot");   
         }
         
     }

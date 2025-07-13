@@ -12,6 +12,8 @@ public class PlayerScript : MonoBehaviour
     public float dihCooldown = 1;
     public int CoinsCollected;
     public InputAction moveAction;
+    public Animator animator;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +36,8 @@ public class PlayerScript : MonoBehaviour
         newVelocity.z = moveInput.y * speed;
 
         rb.linearVelocity = newVelocity;
-        
+        // Animation kode går under her (efter movement kode)
+        animator.SetFloat("Speed", rb.linearVelocity.magnitude);
 
     }
 }
